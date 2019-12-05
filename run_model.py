@@ -46,6 +46,7 @@ def main():
 
 def run(samples,channel, era, use, train,short, datacard = False, add_nominal=False ):
 
+    # import model
     if use == "xgb":
         from XGBModel import XGBObject as modelObject
         parameters = "conf/parameters_xgb.json"
@@ -54,7 +55,7 @@ def run(samples,channel, era, use, train,short, datacard = False, add_nominal=Fa
         from KerasModel import KerasObject as modelObject
         parameters = "conf/parameters_keras.json"
 
-
+    # create instance of Reader
     read = Reader(channel = channel,
                   config_file = samples,
                   folds=2,
@@ -73,8 +74,10 @@ def run(samples,channel, era, use, train,short, datacard = False, add_nominal=Fa
     if train:
         print "Training new model"
         print "Loading Training set"
+        # load samples for training. This returns the input files merged (ggH+qqH+...), randomized and split into two folds
         trainSet = read.getSamplesForTraining()
 
+        # use StandardScaler from sklearn and "train" it on the training set. Then pickle it store it for later and finaly apply it to the training set.
         print "Fit Scaler to training set...",
         scaler = trainScaler(trainSet, variables )
 
@@ -85,12 +88,15 @@ def run(samples,channel, era, use, train,short, datacard = False, add_nominal=Fa
 
         trainSet = applyScaler(scaler, trainSet, variables)
 
+        # load model and start training
         model = modelObject( parameter_file = parameters,
                              variables=variables,
                              target_names = target_names )
-        model.train( trainSet )
+        model.train( trainSet ) # done in KerasModel.py
         model.save(modelname)
 
+    # prediction starts
+    #load scaler and trained model
     elif not datacard:
         # TODO: Maybe not needed to check. Just load what is there
         if os.path.exists("{0}/StandardScaler.{1}.pkl".format(models_folder,channel) ):
@@ -118,12 +124,13 @@ def run(samples,channel, era, use, train,short, datacard = False, add_nominal=Fa
         outpath = read.config["outpath"] + "/predictions_" + era
         predictions = {}
         print "Predicting samples"
+        # only used by DESY
         if add_nominal:
             print "Predicting Nominal"
             for sample, sampleConfig in read.get(what = "nominal", for_prediction = True):
                 sandbox(channel, model, scaler, sample, variables, "nom_" + sampleConfig["histname"], outpath ,sampleConfig, read.modifyDF )
 
-
+        # Iterate over nominal samples
         for sample, sampleConfig in read.get(what = "full", add_jec = not short, for_prediction = True):
             if "data" in sampleConfig["histname"]:
                 sandbox(channel, model, scaler, sample, variables, "NOMINAL_ntuple_Data", outpath, sampleConfig, read.modifyDF)
@@ -132,7 +139,7 @@ def run(samples,channel, era, use, train,short, datacard = False, add_nominal=Fa
             else:
                 splName = sampleConfig["histname"].split("_")
                 sandbox(channel, model, scaler, sample, variables,  "_".join(splName[1:])+"_ntuple_" + sampleConfig["histname"].split("_")[0], outpath, sampleConfig, read.modifyDF )
-
+        # shape files
         if not short:
             print "Predicting shapes"
             for sample, sampleConfig in read.get(what = "tes", for_prediction = True):
@@ -159,6 +166,7 @@ def run(samples,channel, era, use, train,short, datacard = False, add_nominal=Fa
         D.create(era+"/"+use)
         makePlot(channel, "ML", era+"/"+use, era, era+"/plots")
 
+# run prediction for each sample
 def sandbox(channel, model, scaler, sample, variables, outname, outpath, config = None, modify = None):
     # needed because of memory management
     # iterate over chunks of sample and do splitting on the fly
@@ -200,7 +208,7 @@ def trainScaler(folds, variables):
 
     total = pandas.concat( folds, ignore_index = True ).reset_index(drop=True)
     Scaler = StandardScaler()
-    Scaler.fit( total[ variables ] )
+    Scaler.fit( total[ variables ] ) # computes the mean and std to be used for later scaling
 
 
     return Scaler
@@ -209,7 +217,7 @@ def applyScaler(scaler, folds, variables):
     if not scaler: return folds
     newFolds = copy.deepcopy(folds)
     for i,fold in enumerate(newFolds):
-        fold[variables] = scaler[i].transform( fold[variables] )
+        fold[variables] = scaler[i].transform( fold[variables] ) # perform standardization by centering and scaling
     return newFolds
 
 
