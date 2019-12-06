@@ -5,7 +5,7 @@ import argparse
 def main():
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('-e', '--era', help='Era (2016 or 2017) to use' ,choices = ['2016','2017'],  default = '2016')
+    parser.add_argument('-e', '--era', help='Era (2016, 2017, 2018 or Run2) to use' ,choices = ['2016','2017','2018','Run2'],  default = '2016')
     parser.add_argument('-c', '--channel', nargs='+', help='define channels to use in a space seperated list, e.g. -c mt tt' ,choices = ['mt','et','tt','em'])
 
     args = parser.parse_args()
