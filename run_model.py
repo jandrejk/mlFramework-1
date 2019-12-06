@@ -19,7 +19,7 @@ def main():
     parser.add_argument('-t', dest='train',   help='Train new model' , action='store_true')
     parser.add_argument('-s', dest='short',   help='Do !!NOT!! predict shapes' , action='store_true')
     parser.add_argument('-d', dest='datacard',  help='Only produce Datacard' , action='store_true')
-    parser.add_argument('-e', dest='era',  help='Era' , choices=["2016","2017"], required = True)
+    parser.add_argument('-e', dest='era',  help='Era' , choices=["2016","2017", "2018", "Run2"], required = True)
     parser.add_argument('--add_nominal', dest='add_nom',  help='Add nominal samples to prediction', action='store_true' )    
     args = parser.parse_args()
 
@@ -207,9 +207,10 @@ def trainScaler(folds, variables):
     from sklearn.preprocessing import StandardScaler
 
     total = pandas.concat( folds, ignore_index = True ).reset_index(drop=True)
+    print " ...... Variables 'era2016', 'era2017', 'era2018' removed for scaling!"
+    variables_toscale = [var for var in variables if var not in ('era2016','era2017','era2018')]
     Scaler = StandardScaler()
-    Scaler.fit( total[ variables ] ) # computes the mean and std to be used for later scaling
-
+    Scaler.fit( total[ variables_toscale ] ) # computes the mean and std to be used for later scaling
 
     return Scaler
 
@@ -217,7 +218,8 @@ def applyScaler(scaler, folds, variables):
     if not scaler: return folds
     newFolds = copy.deepcopy(folds)
     for i,fold in enumerate(newFolds):
-        fold[variables] = scaler[i].transform( fold[variables] ) # perform standardization by centering and scaling
+        variables_toscale = [var for var in variables if var not in ('era2016','era2017','era2018')]
+        fold[variables_toscale] = scaler[i].transform( fold[variables_toscale] ) # perform standardization by centering and scaling
     return newFolds
 
 
