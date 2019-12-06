@@ -94,7 +94,7 @@ class KerasObject():
         N_classes = len(y_train[0])
 
         model_impl = getattr(keras_models, self.params["name"]) # reads model defined in conf/keras_models.py
-        model = (len(self.variables), N_classes)
+        model = model_impl(len(self.variables), N_classes)
         model.summary()
         history = model.fit(
             train[self.variables].values,
