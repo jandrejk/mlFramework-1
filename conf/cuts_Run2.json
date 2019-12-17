@@ -1,0 +1,100 @@
+{
+	"-SS-":"q_1 * q_2 > 0",
+	"-OS-":"q_1 * q_2 < 0",
+	"-VETO-":{
+		"mt":"((extramuon_veto < 0.5) & (extraelec_veto < 0.5) & (dilepton_veto<0.5) & (againstMuonTight3_2>0.5) & (againstElectronVLooseMVA6_2>0.5) )",
+		"et":"((extramuon_veto < 0.5) & (extraelec_veto < 0.5) & (dilepton_veto<0.5) & (againstMuonLoose3_2>0.5) & (againstElectronTightMVA6_2>0.5) )",
+		"tt":"((extramuon_veto < 0.5) & (extraelec_veto < 0.5) & (dilepton_veto<0.5) & (againstMuonLoose3_1>0.5) & (againstElectronVLooseMVA6_1>0.5) & (againstMuonLoose3_2>0.5) & (againstElectronVLooseMVA6_2>0.5) )",
+		"em":"((extramuon_veto < 0.5) & (extraelec_veto < 0.5) & metFilters)"
+	},
+	"-MT-":{
+		"mt":"mt_1 < 50",
+		"et":"mt_1 < 50",
+		"tt":"(mt_1 >= 0 & pt_tt > 50)",
+		"em":"(mTdileptonMET < 60)"
+	},
+	"-HIGHMT-":{
+		"mt":"mt_1 > 80",
+		"et":"mt_1 > 80",
+		"tt":"(mt_1 >= 0 & pt_tt > 50)",
+		"em":"mt_1 >= 0"
+	},
+	"-ISO-":{
+		"mt":"byTightIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & iso_1 < 0.15",
+		"et":"byTightIsolationMVArun2017v2DBoldDMwLT2017_2  & iso_1 < 0.15",
+		"tt":"(byTightIsolationMVArun2017v2DBoldDMwLT2017_1 > 0.5 )  & (byTightIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 )",
+		"em":"iso_2 < 0.2 & iso_1 < 0.15"
+	},
+	"-ANTIISO-":{
+		"mt":"(byVLooseIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_2 < 0.5 & iso_1 < 0.15)",
+		"et":"(byVLooseIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_2 < 0.5 & iso_1 < 0.15)",
+		"tt":"( (byTightIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byVLooseIsolationMVArun2017v2DBoldDMwLT2017_1 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_1< 0.5) | (byTightIsolationMVArun2017v2DBoldDMwLT2017_1 > 0.5 & byVLooseIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_2 < 0.5) )",
+		"em":"(iso_1<0.50 & iso_2>0.2 & iso_2<0.5)"
+	},
+	"-ANTIISO1-":{
+		"mt":"(byVLooseIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_2 < 0.5  & iso_1 < 0.15)",
+		"et":"(byVLooseIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_2 < 0.5 & iso_1 < 0.15)",
+		"tt":"( (byTightIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 )  & (byVLooseIsolationMVArun2017v2DBoldDMwLT2017_1 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_1 < 0.5) )",
+		"em":"(iso_1<0.50 & iso_2>0.2 & iso_2<0.5)"
+	},
+	"-ANTIISO2-":{
+		"mt":"(byVLooseIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_2 < 0.5  & iso_1 < 0.15)",
+		"et":"(byVLooseIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_2 < 0.5 & iso_1 < 0.15)",
+		"tt":"( (byTightIsolationMVArun2017v2DBoldDMwLT2017_1 > 0.5 )  & (byVLooseIsolationMVArun2017v2DBoldDMwLT2017_2 > 0.5 & byTightIsolationMVArun2017v2DBoldDMwLT2017_2 < 0.5) )",
+		"em":"(iso_1<0.50 & iso_2>0.2 & iso_2<0.5)"
+	},
+	"-TRIG-":{
+		"mt":"( ( (trg_crossmuon_mu20tau27 & abs(eta_1) < 2.1 & pt_1 < 25) | trg_singlemuon_24 | trg_singlemuon_27  ) & pt_2 > 30 )",
+		"et":"( ( (trg_crossele_ele24tau30 && pt_1 < 28) | trg_singleelectron_27 | trg_singleelectron_32 | trg_singleelectron_35 ) & pt_2 > 30 )",
+		"tt":"( trg_doubletau_40_tightiso | trg_doubletau_40_mediso_tightid | trg_doubletau_35_tightiso_tightid )",
+		"em":"(trg_muonelectron & pt_1 > 13 & pt_2 > 10 & TMath::Max(pt_1,pt_2)>24)"
+	},
+	"-GENLEP-":{
+		"mt":"(gen_match_2 < 5)",
+		"et":"(gen_match_2 < 5)",
+		"tt":"( ( ( (gen_match_1 == 5) & (gen_match_2 == 5) ) < 0.5) & (gen_match_1 < 6) & (gen_match_2 < 6)  )",
+		"em":""
+	},
+	"-GENHAD-":{
+		"mt":"(gen_match_2 == 5)",
+		"et":"(gen_match_2 == 5)",
+		"tt":"( ( gen_match_1 == 5) & (gen_match_2 == 5 ) )",
+		"em":""
+	},
+	"-GENJET-":{
+		"mt":"(gen_match_2 == 6)",
+		"et":"(gen_match_2 == 6)",
+		"tt":"( ( gen_match_1 == 6) | (gen_match_2 == 6 ) )",
+		"em":""
+	},
+	"-GENTAU-":{
+		"mt":"((gen_match_1 == 4 & gen_match_2 == 5 ))",
+		"et":"((gen_match_1 == 3 & gen_match_2 == 5 ))",
+		"tt":"((gen_match_1 == 5 & gen_match_2 == 5 ))",
+		"em":""
+	},
+	"-ZTT-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(isZTTEM>0.5)"
+	},
+	"-ZLL-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(isZTTEM<0.5)"
+	},
+	"-DZETA-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(dzeta>-35)"
+	},
+	"-NBTAG-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(nbtag==0)"
+	}
+}

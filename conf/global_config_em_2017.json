@@ -51,55 +51,55 @@
     "samples":{
         "ggH125": {
             "target":       {"em":"ggh"},
-            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -DZETA- &&  -MT- && -NBTAG-",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_ggH",
             "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS"]
         },
         "qqH125": {
             "target":       {"em":"qqh" },
-            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -DZETA- &&  -MT- && -NBTAG-",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_VBFH",
             "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiring_weight"]
         },
         "ZTT": {
             "target":       {"em":"ztt" },
-            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -ZTT- && -DZETA- &&  -MT- && -NBTAG-",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -ZTT- && -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_DYJets",
             "event_weight": ["puweight","xsec_lumi_weight", "effweight", "mcweight" , "zptmassweight","trigger_filter_weight"]
         },
         "ZL": {
             "target":       {"em":"misc" },
-            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -ZLL- && -DZETA- &&  -MT- && -NBTAG-",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -ZLL- && -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_DYJets",
             "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight", "zptmassweight","trigger_filter_weight"]
         },
         "TT": {
             "target":       {"em":"tt" },
-            "select":       "-OS- && -ISO- && -VETO- && -TRIG-&& -DZETA- &&  -MT- && -NBTAG-",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG-&& -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_TTbar",
             "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight","topptweight","trigger_filter_weight","prefiring_weight"]
         },
         "Diboson": {
             "target":       {"em":"diboson" },
-            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -DZETA- &&  -MT- && -NBTAG-",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_Diboson",
             "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
         },
         "W": {
             "target":        {"em":"misc" },
-            "select":        "-OS- && -ISO- && -VETO- && -TRIG- && -DZETA- &&  -MT- && -NBTAG-",
+            "select":        "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_WJets",
             "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
         },
         "SingleTop": {
             "target":        {"em":"singletop" },
-            "select":        "-OS- && -ISO- && -VETO- && -TRIG- && -DZETA- &&  -MT- && -NBTAG-",
+            "select":        "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_SingleTop",
             "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
         },
         "estimate": {
             "target":        {"em":"ss"},
-            "select":        "-SS- && -ISO- && -VETO- && -TRIG-&& -DZETA-&&  -MT- && -NBTAG-",
+            "select":        "-SS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_MuonEG",
             "event_weight" : "qcdweight"
         },
