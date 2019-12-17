@@ -1,5 +1,5 @@
  {
-    "path": "/nfs/dust/cms/user/tlenz/13TeV/2017/SM_HTauTau/HTauTau_emu/Inputs/NTuples_2017_new_naming_v2/",
+    "path": "/nfs/dust/cms/user/mameyer/SM_HiggsTauTau/HTauTau_emu/Inputs/NTuples_2017_Save/",
     "outpath": ".",
     "variables":{
         "em": [
@@ -14,8 +14,6 @@
             "met",
             "dzeta",
             "mtmax",
-            "dphi_mumet",
-            "dphi_emet",
             "dr_tt",
             "jdeta",
             "pt_ttjj",
@@ -33,16 +31,29 @@
         "em":"v1"
     },
     "lumi": 1.0,
-    "class_weight":{
-        "ss":        {"em": 3.4},
-        "tt":        {"em": 17.1},
-        "misc":      {"em": 26.3},
-        "qqh":       {"em": 4584.8},
-        "ztt":       {"em": 1.7},
-        "ggh":       {"em": 392.1},
-        "diboson":   {"em": 37.5}
+    "class_weight":{  
+        "diboson": {"mt":0, "et":0, "tt":0, "em":19.7 },
+        "ss":      {"mt":0, "et":0, "tt":0, "em":3.1 },
+        "zll":     {"mt":0, "et":0, "tt":0, "em":0 },
+        "tt":      {"mt":0, "et":0, "tt":0, "em":17.6 },
+        "misc":    {"mt":0, "et":0, "tt":0, "em":19.7 },
+        "qqh":     {"mt":0, "et":0, "tt":0, "em":3633.3 },
+        "noniso":  {"mt":0, "et":0, "tt":0, "em":0 },
+        "w":       {"mt":0, "et":0, "tt":0, "em":0 },
+        "ztt":     {"mt":0, "et":0, "tt":0, "em":1.9 },
+        "singletop": {"mt":0, "et":0, "tt":0, "em":0 },
+        "ggh":     {"mt":0, "et":0, "tt":0, "em":421.2 }
      },
-
+     "target_values":{
+        "ggh":       0,
+        "qqh":       1,
+        "ztt":       2,
+        "ss":        3,
+        "singletop": 4,
+        "diboson":   5,
+        "tt":        6,
+        "misc":      7
+    },
     "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweight*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*","weight_ggh_NNLOPS*"],
     "shape_from_file":[],
     "shape_from_tree":["_unclMet", "_escale", "_jecUncEta0To5", "_jecUncEta0To3", "_jecUncEta3To5", "_jecUncRelativeBal", "_recoilscale", "_recoilreso", "_jecUncRelativeSample"],
@@ -106,67 +117,85 @@
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_DYJets",
-            "event_weight":  ["puweight", "xsec_lumi_weight", "effweight",  "zptmassweight", "mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight":  1.0
         },
         "ZL_full": {
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_DYJets",
-            "event_weight":  ["puweight", "xsec_lumi_weight", "effweight",  "zptmassweight", "mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight":  1.0
         },
         "TT_full": {
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_TTbar",
-            "event_weight":  ["puweight", "xsec_lumi_weight", "effweight","topptweight", "mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight":  1.0
         },
         "Diboson_full": {
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_Diboson",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight": 1.0
         },
         "W_full": {
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_WJets",
-            "event_weight":  ["puweight" ,"xsec_lumi_weight" ,"effweight", "mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight":  1.0
         },
         "SingleTop_full": {
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_SingleTop",
-            "event_weight":  ["puweight" ,"xsec_lumi_weight" ,"effweight", "mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight":  1.0
         },
         "qqH125_full": {
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_VBFH",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight": 1.0
         },
         "ggH125_full": {
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_ggH",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+            "event_weight": 1.0
         },
         "wh125_full": {
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_WH",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight": 1.0
         },
         "zh125_full": {
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_ZH",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+            "event_weight": 1.0
+        },
+        "ggHWW_full": {
+            "target":       "none",
+            "select":       "",
+            "name":         "NOMINAL_ntuple_ggHWW",
+            "event_weight": 1.0
+        },
+        "qqHWW_full": {
+            "target":       "none",
+            "select":       "",
+            "name":         "NOMINAL_ntuple_VBFHWW",
+            "event_weight": 1.0
+	      },
+        "ttH_full": {
+            "target":       "none",
+            "select":       "",
+            "name":         "NOMINAL_ntuple_ttH",
+            "event_weight": 1.0
         },
         "EMB_full": {
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_Embedded",
-            "event_weight":  ["effweight", "mcweight", "embeddedWeight", "embedded_stitching_weight", "embedded_rate_weight"]
+            "event_weight":  1.0
 	     },
         "data_full": {
             "target":        "none",
