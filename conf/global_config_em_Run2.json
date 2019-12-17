@@ -43,8 +43,7 @@
         "qqh":       {"em": 4584.8},
         "ztt":       {"em": 1.7},
         "ggh":       {"em": 392.1},
-        "diboson":   {"em": 37.5},
-        "singletop": {"em": 96.6}
+        "diboson":   {"em": 37.5}
      },
 
     "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweight*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*","weight_ggh_NNLOPS*"],
@@ -95,7 +94,7 @@
             "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "SingleTop": {
-            "target":        {"em":"singletop" },
+            "target":        {"em":"misc" },
             "select":        "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_SingleTop",
             "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
