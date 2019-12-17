@@ -56,7 +56,7 @@
             "target":       {"em":"ggh"},
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_ggH",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS"]
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
         },
         "qqH125": {
             "target":       {"em":"qqh" },
@@ -68,13 +68,13 @@
             "target":       {"em":"ztt" },
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -ZTT- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_DYJets",
-            "event_weight": ["puweight","xsec_lumi_weight", "effweight", "mcweight" , "zptmassweight","trigger_filter_weight"]
+            "event_weight": ["puweight","xsec_lumi_weight", "effweight", "mcweight" , "zptmassweight","trigger_filter_weight","prefiringweight"]
         },
         "ZL": {
             "target":       {"em":"misc" },
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -ZLL- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_DYJets",
-            "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight", "zptmassweight","trigger_filter_weight"]
+            "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight", "zptmassweight","trigger_filter_weight","prefiringweight"]
         },
         "TT": {
             "target":       {"em":"tt" },
@@ -86,19 +86,19 @@
             "target":       {"em":"diboson" },
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_Diboson",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "W": {
             "target":        {"em":"misc" },
             "select":        "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_WJets",
-            "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
+            "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "SingleTop": {
             "target":        {"em":"singletop" },
             "select":        "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_SingleTop",
-            "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
+            "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "estimate": {
             "target":        {"em":"ss"},
@@ -110,13 +110,13 @@
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_DYJets",
-            "event_weight":  ["puweight", "xsec_lumi_weight", "effweight",  "zptmassweight", "mcweight","trigger_filter_weight"]
+            "event_weight":  ["puweight", "xsec_lumi_weight", "effweight",  "zptmassweight", "mcweight","trigger_filter_weight","prefiringweight"]
         },
         "ZL_full": {
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_DYJets",
-            "event_weight":  ["puweight", "xsec_lumi_weight", "effweight",  "zptmassweight", "mcweight","trigger_filter_weight"]
+            "event_weight":  ["puweight", "xsec_lumi_weight", "effweight",  "zptmassweight", "mcweight","trigger_filter_weight","prefiringweight"]
         },
         "TT_full": {
             "target":        "none",
@@ -128,19 +128,19 @@
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_Diboson",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "W_full": {
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_WJets",
-            "event_weight":  ["puweight" ,"xsec_lumi_weight" ,"effweight", "mcweight","trigger_filter_weight"]
+            "event_weight":  ["puweight" ,"xsec_lumi_weight" ,"effweight", "mcweight","trigger_filter_weight","prefiringweight"]
         },
         "SingleTop_full": {
             "target":        "none",
             "select":        "",
             "name":          "NOMINAL_ntuple_SingleTop",
-            "event_weight":  ["puweight" ,"xsec_lumi_weight" ,"effweight", "mcweight","trigger_filter_weight"]
+            "event_weight":  ["puweight" ,"xsec_lumi_weight" ,"effweight", "mcweight","trigger_filter_weight","prefiringweight"]
         },
         "qqH125_full": {
             "target":       "none",
@@ -152,19 +152,19 @@
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_ggH",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS"]
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
         },
         "wh125_full": {
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_WH",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "zh125_full": {
             "target":       "none",
             "select":       "",
             "name":         "NOMINAL_ntuple_ZH",
-            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight"]
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "EMB_full": {
             "target":        "none",
