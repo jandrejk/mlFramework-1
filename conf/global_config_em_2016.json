@@ -1,5 +1,5 @@
  {
-    "path": "/nfs/dust/cms/user/mameyer/SM_HiggsTauTau/HTauTau_emu/Inputs/NTuples_2016_Save/"
+    "path": "/nfs/dust/cms/user/mameyer/SM_HiggsTauTau/HTauTau_emu/Inputs/NTuples_2016/",
     "outpath": ".",
     "variables":{
         "em": [
@@ -52,14 +52,13 @@
         "qqh":       1,
         "ztt":       2,
         "ss":        3,
-        "singletop": 4,
-        "diboson":   5,
-        "tt":        6,
-        "misc":      7
+        "diboson":   4,
+        "tt":        5,
+        "misc":      6
     },
-    "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweight*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight", "weight_ggh_NNLOPS*", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*", "weight_ggh_NNLOPS*"],
+    "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweight*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight*", "weight_ggh_NNLOPS*", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*", "weight_ggh_NNLOPS*"],
     "shape_from_file":[],
-    "shape_from_tree":["_unclMet", "_escale", "_ereso", "_jecUncEta0To5", "_jecUncEta0To3", "_jecUncEta3To5", "_jecUncRelativeBal", "_recoilscale", "_recoilreso"],
+    "shape_from_tree":["_unclMet", "_escale", "_ereso", "_jecUncEta0To5", "_jecUncEta0To3", "_jecUncEta3To5", "_jecUncRelativeBal", "_recoilscale", "_recoilreso", "_jecUncRelativeSampleYear", "_jecUncEC2","_jecUncFlavorQCD", "_jecUncAbsoluteYear", "_jecUncHFYear" , "_jecUncEC2Year", "_jecUncBBEC1Year"],
 
     "samples":{
         "ggH125": {
