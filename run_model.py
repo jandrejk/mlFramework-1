@@ -20,7 +20,8 @@ def main():
     parser.add_argument('-s', dest='short',   help='Do !!NOT!! predict shapes' , action='store_true')
     parser.add_argument('-d', dest='datacard',  help='Only produce Datacard' , action='store_true')
     parser.add_argument('-e', dest='era',  help='Era' , choices=["2016","2017", "2018", "Run2"], required = True)
-    parser.add_argument('--add_nominal', dest='add_nom',  help='Add nominal samples to prediction', action='store_true' )    
+    parser.add_argument('--add_nominal', dest='add_nom',  help='Add nominal samples to prediction', action='store_true' )
+    parser.add_argument('-measure', dest='measurement', help='Targeted type of measurement', choices = ['inclusive', 'stage0', 'stage1p2'], default = 'stage0')
     args = parser.parse_args()
 
     print "---------------------------"
@@ -31,6 +32,7 @@ def main():
         print "Training new model"
     if args.short:
         print "Not predicting shape templates."
+    print "Targeted type of measurement : ", args.measurement
     print "---------------------------"
 
         
@@ -40,11 +42,12 @@ def main():
         use = args.model,
         train = args.train,
         short = args.short,
+        measurement = args.measurement,
         datacard = args.datacard,
         add_nominal = args.add_nom
           )
 
-def run(samples,channel, era, use, train,short, datacard = False, add_nominal=False ):
+def run(samples,channel, era, use, train,short, measurement, datacard = False, add_nominal=False):
 
     # import model
     if use == "xgb":
@@ -59,7 +62,8 @@ def run(samples,channel, era, use, train,short, datacard = False, add_nominal=Fa
     read = Reader(channel = channel,
                   config_file = samples,
                   folds=2,
-                  era = era)
+                  era = era,
+                  measurement = measurement)
 
     target_names = read.config["target_names"]
     variables = read.config["variables"]

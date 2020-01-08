@@ -14,7 +14,7 @@ def main():
 
 class Reader():
 
-    def __init__(self, channel,config_file, folds, era = ''):
+    def __init__(self, channel,config_file, folds, measurement, era = ''):
         self.itersamples = []
         self.idx = 0
         self.era = era
@@ -23,6 +23,7 @@ class Reader():
         self.folds = folds
         self.processes = []
         self.needToAddVars = []
+        self.measurement = measurement
 
         with open("conf/cuts_{0}.json".format(era),"r") as FSO:
             cuts = json.load(FSO)
@@ -64,6 +65,7 @@ class Reader():
         config["target_names"] = {}
         config["variables"] = self._assertChannel( config["variables"] )
         config["version"] = self._assertChannel( config["version"] )
+        config["target_values"] = self._assertMeasurement( config["target_values"] )
         for cw in config["class_weight"]:
             config["class_weight"][cw] = self._assertChannel( config["class_weight"][cw] )
 
@@ -137,7 +139,8 @@ class Reader():
             tmp["histname"   ] = sample
             tmp["rename"      ] = {}
 
-            self.itersamples.append( tmp )
+            if self.config["samples"][sample]["measurement"] == self.measurement or self.config["samples"][sample]["measurement"] == "":
+                self.itersamples.append( tmp )
 
         return self
 
@@ -289,7 +292,14 @@ class Reader():
         if type( entry ) is dict:
             return entry[ self.channel ]
         else:
-            return entry      
+            return entry
+
+    def _assertMeasurement(self, entry):
+
+        if type( entry ) is dict:
+            return entry[ self.measurement ]
+        else:
+            return entry
 
     def _getShapePaths(self, path, sample, from_file, from_tree):
 
