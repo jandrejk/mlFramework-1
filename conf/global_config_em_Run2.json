@@ -33,172 +33,293 @@
     },
     "lumi": 1.0,
     "class_weight":{
-        "diboson": {"mt":0, "et":0, "tt":0, "em":7.4 },
-        "ss":      {"mt":0, "et":0, "tt":0, "em":9.0 },
+        "vbftopo_highmjj": {"mt":0, "et":0, "tt":0, "em":12094.0 },
+        "diboson": {"mt":0, "et":0, "tt":0, "em":19.7 },
+        "vbftopo_lowmjj": {"mt":0, "et":0, "tt":0, "em":11563.1 },
+        "signal":  {"mt":0, "et":0, "tt":0, "em":0 },
+        "qqh_PTHGT200": {"mt":0, "et":0, "tt":0, "em":42005.6 },
+        "ss":      {"mt":0, "et":0, "tt":0, "em":3.3 },
         "zll":     {"mt":0, "et":0, "tt":0, "em":0 },
-        "tt":      {"mt":0, "et":0, "tt":0, "em":33.3 },
-        "misc":    {"mt":0, "et":0, "tt":0, "em":1.4 },
-        "qqh":     {"mt":0, "et":0, "tt":0, "em":851.8 },
+        "tt":      {"mt":0, "et":0, "tt":0, "em":18.9 },
+        "qqh_2J":  {"mt":0, "et":0, "tt":0, "em":12196.3 },
+        "misc":    {"mt":0, "et":0, "tt":0, "em":20.3 },
+        "qqh":     {"mt":0, "et":0, "tt":0, "em":0 },
         "noniso":  {"mt":0, "et":0, "tt":0, "em":0 },
+        "ggh_0J":  {"mt":0, "et":0, "tt":0, "em":545.7 },
+        "ggh_PTHGT200": {"mt":0, "et":0, "tt":0, "em":12645.4 },
         "w":       {"mt":0, "et":0, "tt":0, "em":0 },
-        "ztt":     {"mt":0, "et":0, "tt":0, "em":87.4 },
+        "ztt":     {"mt":0, "et":0, "tt":0, "em":1.8 },
+        "ggh_1J_PTH0to120": {"mt":0, "et":0, "tt":0, "em":1304.7 },
         "singletop": {"mt":0, "et":0, "tt":0, "em":0 },
-        "ggh":     {"mt":0, "et":0, "tt":0, "em":213.3 }
+        "ggh":     {"mt":0, "et":0, "tt":0, "em":0 },
+        "ggh_2J":  {"mt":0, "et":0, "tt":0, "em":3565.3 },
+        "ggh_1J_PTH120to200": {"mt":0, "et":0, "tt":0, "em":12742.2 },
      },
      "target_values":{
-         "ggh":       0,
-         "qqh":       1,
-         "ztt":       2,
-         "ss":        3,
-         "diboson":   4,
-         "tt":        5,
-         "misc":      6
-     },
+       "inclusive"   : { "signal": 0, "ztt": 1, "ss": 2, "diboson": 3, "tt": 4,"misc": 5 },
+       "stage0"      : { "ggh": 0, "qqh": 1, "ztt": 2, "ss": 3, "diboson": 4, "tt": 5,"misc": 6 },
+       "stage1p2"    : { "ggh_PTHGT200" : 0, "ggh_0J" : 1, "ggh_1J_PTH0to120" : 2, "ggh_1J_PTH120to200" : 3, "ggh_2J" : 4, "vbftopo_lowmjj" : 5, "vbftopo_highmjj" : 6, "qqh_2J" : 7, "qqh_PTHGT200" : 8, "ztt" : 9, "ss" : 10, "diboson" : 11, "tt" : 12, "misc" : 13}
+    },
     "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweight*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight*", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*","weight_ggh_NNLOPS*"],
     "shape_from_file":[],
     "shape_from_tree":["_unclMet", "_escale", "_ereso", "_jecUncEta0To5", "_jecUncEta0To3", "_jecUncEta3To5", "_jecUncRelativeBal", "_recoilscale", "_recoilreso", "_jecUncRelativeSampleYear", "_jecUncEC2","_jecUncFlavorQCD", "_jecUncAbsoluteYear", "_jecUncHFYear" , "_jecUncEC2Year", "_jecUncBBEC1Year"],
 
     "samples":{
+        "ggH125_inclusive": {
+           "target":       {"em":"signal"},
+           "measurement":  "inclusive",
+           "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
+           "name":         "NOMINAL_ntuple_ggH",
+           "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+        },
+        "qqH125_inclusive": {
+           "target":       {"em":"signal" },
+           "measurement":  "inclusive",
+           "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
+           "name":         "NOMINAL_ntuple_VBFH",
+           "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+        },
         "ggH125": {
             "target":       {"em":"ggh"},
+            "measurement":  "stage0",
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_ggH",
             "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
         },
         "qqH125": {
             "target":       {"em":"qqh" },
+            "measurement":  "stage0",
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
+            "name":         "NOMINAL_ntuple_VBFH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+        },
+        "ggH125_PTHGT200": {
+            "target":       {"em":"ggh_PTHGT200"},
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT101-",
+            "name":         "NOMINAL_ntuple_ggH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+        },
+        "ggH125_0J": {
+            "target":       {"em":"ggh_0J"},
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT102To103-",
+            "name":         "NOMINAL_ntuple_ggH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+        },
+        "ggH125_1J_PTH0to120": {
+            "target":       {"em":"ggh_1J_PTH0to120"},
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT104To105-",
+            "name":         "NOMINAL_ntuple_ggH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+        },
+        "ggH125_1J_PTH120to200": {
+            "target":       {"em":"ggh_1J_PTH120to200"},
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT106-",
+            "name":         "NOMINAL_ntuple_ggH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+        },
+        "ggH125_2J": {
+            "target":       {"em":"ggh_2J"},
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT107To109-",
+            "name":         "NOMINAL_ntuple_ggH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+        },
+        "ggH125_VBFTOPOLOWMJJ": {
+            "target":       {"em":"vbftopo_lowmjj"},
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT110To111-",
+            "name":         "NOMINAL_ntuple_ggH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+        },
+        "ggH125_VBFTOPOHIGHMJJ": {
+            "target":       {"em":"vbftopo_highmjj"},
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT112To113-",
+            "name":         "NOMINAL_ntuple_ggH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","weight_ggh_NNLOPS","prefiringweight"]
+        },
+        "qqH125_VBFTOPOLOWMJJ": {
+            "target":       {"em":"vbftopo_lowmjj" },
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT207To208-",
+            "name":         "NOMINAL_ntuple_VBFH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+        },
+        "qqH125_VBFTOPOHIGHMJJ": {
+            "target":       {"em":"vbftopo_highmjj" },
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT209To210-",
+            "name":         "NOMINAL_ntuple_VBFH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+        },
+        "qqH125_2J": {
+            "target":       {"em":"qqh_2J" },
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT203To205-",
+            "name":         "NOMINAL_ntuple_VBFH",
+            "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
+        },
+        "qqH125_PTHGT200": {
+            "target":       {"em":"qqh_PTHGT200" },
+            "measurement":  "stage1p2",
+            "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG- && -HTXSCUT206-",
             "name":         "NOMINAL_ntuple_VBFH",
             "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "ZTT": {
             "target":       {"em":"ztt" },
+            "measurement":  "",
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -ZTT- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_DYJets",
             "event_weight": ["puweight","xsec_lumi_weight", "effweight", "mcweight" , "zptmassweight","trigger_filter_weight","prefiringweight"]
         },
         "ZL": {
             "target":       {"em":"misc" },
+            "measurement":  "",
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- && -ZLL- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_DYJets",
             "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight", "zptmassweight","trigger_filter_weight","prefiringweight"]
         },
         "TT": {
             "target":       {"em":"tt" },
+            "measurement":  "",
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_TTbar",
             "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight","topptweight","trigger_filter_weight","prefiringweight"]
         },
         "Diboson": {
             "target":       {"em":"diboson" },
+            "measurement":  "",
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_Diboson",
             "event_weight": ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "W": {
             "target":        {"em":"misc" },
+            "measurement":   "",
             "select":        "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_WJets",
             "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "SingleTop": {
             "target":        {"em":"misc" },
+            "measurement":   "",
             "select":        "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_SingleTop",
             "event_weight":  ["puweight","xsec_lumi_weight","effweight","mcweight","trigger_filter_weight","prefiringweight"]
         },
         "estimate": {
             "target":        {"em":"ss"},
+            "measurement":   "",
             "select":        "-SS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_MuonEG",
             "event_weight" : "qcdweight"
         },
         "ZTT_full": {
             "target":        "none",
+            "measurement":   "",
             "select":        "",
             "name":          "NOMINAL_ntuple_DYJets",
             "event_weight":  1.0
         },
         "ZL_full": {
             "target":        "none",
+            "measurement":   "",
             "select":        "",
             "name":          "NOMINAL_ntuple_DYJets",
             "event_weight":  1.0
         },
         "TT_full": {
             "target":        "none",
+            "measurement":   "",
             "select":        "",
             "name":          "NOMINAL_ntuple_TTbar",
             "event_weight":  1.0
         },
         "Diboson_full": {
             "target":       "none",
+            "measurement":  "",
             "select":       "",
             "name":         "NOMINAL_ntuple_Diboson",
             "event_weight": 1.0
         },
         "W_full": {
             "target":        "none",
+            "measurement":  "",
             "select":        "",
             "name":          "NOMINAL_ntuple_WJets",
             "event_weight":  1.0
         },
         "SingleTop_full": {
             "target":        "none",
+            "measurement":  "",
             "select":        "",
             "name":          "NOMINAL_ntuple_SingleTop",
             "event_weight":  1.0
         },
         "qqH125_full": {
             "target":       "none",
+            "measurement":  "",
             "select":       "",
             "name":         "NOMINAL_ntuple_VBFH",
             "event_weight": 1.0
         },
         "ggH125_full": {
             "target":       "none",
+            "measurement":  "",
             "select":       "",
             "name":         "NOMINAL_ntuple_ggH",
             "event_weight": 1.0
         },
         "wh125_full": {
             "target":       "none",
+            "measurement":  "",
             "select":       "",
             "name":         "NOMINAL_ntuple_WH",
             "event_weight": 1.0
         },
         "zh125_full": {
             "target":       "none",
+            "measurement":  "",
             "select":       "",
             "name":         "NOMINAL_ntuple_ZH",
             "event_weight": 1.0
         },
         "ggHWW_full": {
             "target":       "none",
+            "measurement":  "",
             "select":       "",
             "name":         "NOMINAL_ntuple_ggHWW",
             "event_weight": 1.0
         },
         "qqHWW_full": {
             "target":       "none",
+            "measurement":  "",
             "select":       "",
             "name":         "NOMINAL_ntuple_VBFHWW",
             "event_weight": 1.0
 	      },
         "ttH_full": {
             "target":       "none",
+            "measurement":  "",
             "select":       "",
             "name":         "NOMINAL_ntuple_ttH",
             "event_weight": 1.0
         },
         "EMB_full": {
             "target":        "none",
+            "measurement":   "",
             "select":        "",
             "name":          "NOMINAL_ntuple_Embedded",
             "event_weight":  1.0
 	     },
         "data_full": {
             "target":        "none",
+            "measurement":   "",
             "select":        "",
             "event_weight":  1.0,
             "name":          {"em": "NOMINAL_ntuple_MuonEG"}

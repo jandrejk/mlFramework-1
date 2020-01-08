@@ -96,5 +96,71 @@
 		"et":"",
 		"tt":"",
 		"em":"(nbtag==0)"
+	},
+	"-HTXSCUT101-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 101)"
+	},
+	"-HTXSCUT102To103-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 102 | htxs_stage1p1cat == 103 ) "
+	},
+	"-HTXSCUT104To105-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 104 | htxs_stage1p1cat == 105 ) "
+	},
+	"-HTXSCUT106-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 106 ) "
+	},
+	"-HTXSCUT107To109-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 107 | htxs_stage1p1cat == 108 | htxs_stage1p1cat == 109 ) "
+	},
+	"-HTXSCUT110To111-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 110 | htxs_stage1p1cat == 111 ) "
+	},
+	"-HTXSCUT112To113-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 112 | htxs_stage1p1cat == 113 ) "
+	},
+	"-HTXSCUT207To208-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 207 | htxs_stage1p1cat == 208 ) "
+	},
+	"-HTXSCUT209To210-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 209 | htxs_stage1p1cat == 210 ) "
+	},
+	"-HTXSCUT203To205-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 203 | htxs_stage1p1cat == 204 | htxs_stage1p1cat == 205 ) "
+	},
+	"-HTXSCUT206-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(htxs_stage1p1cat == 206 ) "
 	}
 }
