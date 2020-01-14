@@ -53,7 +53,7 @@
         "singletop": {"mt":0, "et":0, "tt":0, "em":0 },
         "ggh":     {"mt":0, "et":0, "tt":0, "em":0 },
         "ggh_2J":  {"mt":0, "et":0, "tt":0, "em":3565.3 },
-        "ggh_1J_PTH120to200": {"mt":0, "et":0, "tt":0, "em":12742.2 },
+        "ggh_1J_PTH120to200": {"mt":0, "et":0, "tt":0, "em":12742.2 }
      },
      "target_values":{
        "inclusive"   : { "signal": 0, "ztt": 1, "ss": 2, "diboson": 3, "tt": 4,"misc": 5 },
