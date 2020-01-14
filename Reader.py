@@ -14,7 +14,7 @@ def main():
 
 class Reader():
 
-    def __init__(self, channel,config_file, folds, measurement, era = ''):
+    def __init__(self, channel,config_file, folds, measurement, era = '', balancedbatches="False"):
         self.itersamples = []
         self.idx = 0
         self.era = era
@@ -24,6 +24,7 @@ class Reader():
         self.processes = []
         self.needToAddVars = []
         self.measurement = measurement
+        self.balancedbatches = balancedbatches
 
         with open("conf/cuts_{0}.json".format(era),"r") as FSO:
             cuts = json.load(FSO)
@@ -181,6 +182,21 @@ class Reader():
 
         return self
 
+    def getClasses(self):
+
+        classes = []
+        samples = self.config["samples"].keys()
+        samples.sort()
+        for sample in samples:
+            if sample == "data" or "_full" in sample: continue
+
+            if self.config["samples"][sample]["measurement"] == self.measurement or self.config["samples"][sample]["measurement"] == "":
+                if self.config["samples"][sample]["target_name"] not in classes:
+                    classes.append(self.config["samples"][sample]["target_name"])
+
+        return classes
+
+
     def setTESSamples(self):
         self.addvar = self.config["addvar"]
         self.itersamples = []
@@ -230,7 +246,14 @@ class Reader():
         DF["evt"] = DF["evt"].astype('int64')
         DF.eval( "event_weight = " + sample_info["event_weight"], inplace = True  )
         DF["target"] = sample_info["target"]
-        DF["train_weight"] = DF["event_weight"].abs() * self.config["class_weight"].get(sample_info["target_name"], 1.0 )
+
+        if (self.balancedbatches == "False") :
+            print "Using class weights!"
+            DF["train_weight"] = DF["event_weight"].abs() * self.config["class_weight"].get(sample_info["target_name"], 1.0 )
+        else :
+            print "NOT using class weights!"
+            DF["train_weight"] = DF["event_weight"].abs
+
         DF.replace(-999.,-10, inplace = True)
 
         for new, old in sample_info["rename"]:
