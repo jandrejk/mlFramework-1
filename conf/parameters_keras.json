@@ -3,6 +3,8 @@
 		"name":"smhtt_dropout_tanh",
 		"batch_size":100,
 		"epochs":10000,
-		"early_stopping":50
+		"early_stopping":50,
+		"steps_per_epoch":1000,
+		"eventsPerClassAndBatch":30
 	}
 }
