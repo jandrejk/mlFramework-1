@@ -17,7 +17,8 @@
           "ME_q2v1",
           "ME_q2v2",
           "eta_1",
-          "mTdileptonMET"
+          "mTdileptonMET",
+          "era2016"
          ]
     },
     "shifted_variables": ["met","metphi","mTtot","mTdileptonMET","pt_tt","pt_ttjj","pzetamiss","dzeta","mt_1","mt_2","mtmax","dphi_emet","dphi_mumet","pzetavis","m_vis","pt_vis","pt_1","pt_2","jpt_1","jpt_2","mjj","dijetphi","dijetpt","m_sv","mTemu","njets","dr_tt","pt_sv","mt_sv","jdeta","jeta_1","jeta_2","iso_2"],
