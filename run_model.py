@@ -21,8 +21,8 @@ def main():
     parser.add_argument('-d', dest='datacard',  help='Only produce Datacard' , action='store_true')
     parser.add_argument('-e', dest='era',  help='Era' , choices=["2016","2017", "2018", "Run2"], required = True)
     parser.add_argument('--add_nominal', dest='add_nom',  help='Add nominal samples to prediction', action='store_true' )
-    parser.add_argument('-measure', dest='measurement', help='Targeted type of measurement', choices = ['inclusive', 'stage0', 'stage1p2'], default = 'stage0')
-    parser.add_argument('-b', dest='balancedbatches', help='Use balanced batches', choices = ["True", "False"], default = "False")
+    parser.add_argument('-measure', dest='measurement', help='Targeted type of measurement', choices = ['inclusive', 'stage0', 'stage1p2'], required = True)
+    parser.add_argument('-b', dest='balancedbatches', help='Use balanced batches?', choices = ["True", "False"], required = True)
     args = parser.parse_args()
 
     print "---------------------------"
