@@ -22,6 +22,7 @@ def main():
     parser.add_argument('-e', dest='era',  help='Era' , choices=["2016","2017", "2018", "Run2"], required = True)
     parser.add_argument('--add_nominal', dest='add_nom',  help='Add nominal samples to prediction', action='store_true' )
     parser.add_argument('-measure', dest='measurement', help='Targeted type of measurement', choices = ['inclusive', 'stage0', 'stage1p2'], default = 'stage0')
+    parser.add_argument('-b', dest='balancedbatches', help='Use balanced batches', choices = ["True", "False"], default = "False")
     args = parser.parse_args()
 
     print "---------------------------"
@@ -33,9 +34,10 @@ def main():
     if args.short:
         print "Not predicting shape templates."
     print "Targeted type of measurement : ", args.measurement
+    print "Using balcanced batches : ", args.balancedbatches
     print "---------------------------"
 
-        
+
     run(samples = "conf/global_config_{0}_{1}.json".format(args.channel,args.era),
         channel=args.channel,
         era = args.era,
@@ -44,10 +46,10 @@ def main():
         short = args.short,
         measurement = args.measurement,
         datacard = args.datacard,
-        add_nominal = args.add_nom
-          )
+        add_nominal = args.add_nom,
+        balancedbatches = args.balancedbatches)
 
-def run(samples,channel, era, use, train,short, measurement, datacard = False, add_nominal=False):
+def run(samples,channel, era, use, train,short, measurement, datacard = False, add_nominal=False, balancedbatches = "False"):
 
     # import model
     if use == "xgb":
@@ -63,7 +65,8 @@ def run(samples,channel, era, use, train,short, measurement, datacard = False, a
                   config_file = samples,
                   folds=2,
                   era = era,
-                  measurement = measurement)
+                  measurement = measurement,
+                  balancedbatches= balancedbatches)
 
     target_names = read.config["target_names"]
     variables = read.config["variables"]
@@ -92,10 +95,14 @@ def run(samples,channel, era, use, train,short, measurement, datacard = False, a
 
         trainSet = applyScaler(scaler, trainSet, variables)
 
+        classes = read.getClasses()
         # load model and start training
         model = modelObject( parameter_file = parameters,
-                             variables=variables,
-                             target_names = target_names )
+                             variables =variables,
+                             target_names = target_names,
+                             balancedbatches = balancedbatches,
+                             classes = classes,
+                             era=era)
         model.train( trainSet ) # done in KerasModel.py
         model.save(modelname)
 
