@@ -56,9 +56,9 @@
         "ggh_1J_PTH120to200": {"mt":0, "et":0, "tt":0, "em":12742.2 }
      },
      "target_values":{
-       "inclusive"   : { "signal": 0, "ztt": 1, "ss": 2, "diboson": 3, "tt": 4,"misc": 5 },
-       "stage0"      : { "ggh": 0, "qqh": 1, "ztt": 2, "ss": 3, "diboson": 4, "tt": 5,"misc": 6 },
-       "stage1p2"    : { "ggh_PTHGT200" : 0, "ggh_0J" : 1, "ggh_1J_PTH0to120" : 2, "ggh_1J_PTH120to200" : 3, "ggh_2J" : 4, "vbftopo_lowmjj" : 5, "vbftopo_highmjj" : 6, "qqh_2J" : 7, "qqh_PTHGT200" : 8, "ztt" : 9, "ss" : 10, "diboson" : 11, "tt" : 12, "misc" : 13}
+       "inclusive"   : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "signal": 5 },
+       "stage0"      : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh": 6, "qqh": 7 },
+       "stage1p2"    : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh_PTHGT200" : 8, "ggh_0J" : 9, "ggh_1J_PTH0to120" : 10, "ggh_1J_PTH120to200" : 11, "ggh_2J" : 12, "vbftopo_lowmjj" : 13, "vbftopo_highmjj" : 14, "qqh_2J" : 15, "qqh_PTHGT200" : 16}
     },
     "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweight*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight*", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*","weight_ggh_NNLOPS*"],
     "shape_from_file":[],
