@@ -23,6 +23,7 @@ def main():
     parser.add_argument('--add_nominal', dest='add_nom',  help='Add nominal samples to prediction', action='store_true' )
     parser.add_argument('-measure', dest='measurement', help='Targeted type of measurement', choices = ['inclusive', 'stage0', 'stage1p2'], required = True)
     parser.add_argument('-b', dest='balancedbatches', help='Use balanced batches?', choices = ["True", "False"], required = True)
+    parser.add_argument('-train_on', dest='train_on', help='Train on data or MC?', choices = ["data", "mc"], required = True)
     args = parser.parse_args()
 
     print "---------------------------"
@@ -35,6 +36,7 @@ def main():
         print "Not predicting shape templates."
     print "Targeted type of measurement : ", args.measurement
     print "Using balcanced batches : ", args.balancedbatches
+    print "Using {0} for training".format(args.train_on)
     print "---------------------------"
 
 
@@ -47,9 +49,15 @@ def main():
         measurement = args.measurement,
         datacard = args.datacard,
         add_nominal = args.add_nom,
-        balancedbatches = args.balancedbatches)
+        balancedbatches = args.balancedbatches,
+        train_on=args.train_on)
 
-def run(samples,channel, era, use, train,short, measurement, datacard = False, add_nominal=False, balancedbatches = "False"):
+def run(samples,channel, era, use, train,short, measurement, datacard = False, add_nominal=False, balancedbatches = "False", train_on = "mc"):
+
+    if (train_on == "data") :
+        balancedbatches = "True"
+        print "Since the training is performed on data, balanced batches will be used!!!"
+
 
     # import model
     if use == "xgb":
@@ -66,7 +74,8 @@ def run(samples,channel, era, use, train,short, measurement, datacard = False, a
                   folds=2,
                   era = era,
                   measurement = measurement,
-                  balancedbatches= balancedbatches)
+                  balancedbatches= balancedbatches,
+                  train_on=train_on)
 
     target_names = read.config["target_names"]
     variables = read.config["variables"]
