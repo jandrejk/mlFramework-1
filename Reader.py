@@ -14,7 +14,7 @@ def main():
 
 class Reader():
 
-    def __init__(self, channel,config_file, folds, measurement, era = '', balancedbatches="False"):
+    def __init__(self, channel,config_file, folds, measurement, era = '', balancedbatches="False", train_on="mc"):
         self.itersamples = []
         self.idx = 0
         self.era = era
@@ -25,6 +25,7 @@ class Reader():
         self.needToAddVars = []
         self.measurement = measurement
         self.balancedbatches = balancedbatches
+        self.train_on = train_on
 
         with open("conf/cuts_{0}.json".format(era),"r") as FSO:
             cuts = json.load(FSO)
@@ -66,7 +67,7 @@ class Reader():
         config["target_names"] = {}
         config["variables"] = self._assertChannel( config["variables"] )
         config["version"] = self._assertChannel( config["version"] )
-        config["target_values"] = self._assertMeasurement( config["target_values"] )
+        config["target_values"] = self._assertMeasurementAndTrainOn( config["target_values"] )
         for cw in config["class_weight"]:
             config["class_weight"][cw] = self._assertChannel( config["class_weight"][cw] )
 
@@ -141,7 +142,12 @@ class Reader():
             tmp["rename"      ] = {}
 
             if self.config["samples"][sample]["measurement"] == self.measurement or self.config["samples"][sample]["measurement"] == "":
-                self.itersamples.append( tmp )
+                if (self.train_on == "data" ):
+                    if self.config["samples"][sample]["use_to_train_on_data"] == "yes" or self.config["samples"][sample]["use_to_train_on_data"] == "":
+                        self.itersamples.append( tmp )
+                else :
+                    if self.config["samples"][sample]["use_to_train_on_data"] == "no" or self.config["samples"][sample]["use_to_train_on_data"] == "":
+                        self.itersamples.append( tmp )
 
         return self
 
@@ -191,8 +197,14 @@ class Reader():
             if sample == "data" or "_full" in sample: continue
 
             if self.config["samples"][sample]["measurement"] == self.measurement or self.config["samples"][sample]["measurement"] == "":
-                if self.config["samples"][sample]["target_name"] not in classes:
-                    classes.append(self.config["samples"][sample]["target_name"])
+                if (self.train_on == "data" ):
+                    if self.config["samples"][sample]["use_to_train_on_data"] == "yes" or self.config["samples"][sample]["use_to_train_on_data"] == "":
+                        if self.config["samples"][sample]["target_name"] not in classes:
+                            classes.append(self.config["samples"][sample]["target_name"])
+                else :
+                    if self.config["samples"][sample]["use_to_train_on_data"] == "no" or self.config["samples"][sample]["use_to_train_on_data"] == "":
+                        if self.config["samples"][sample]["target_name"] not in classes:
+                            classes.append(self.config["samples"][sample]["target_name"])
 
         return classes
 
@@ -252,7 +264,7 @@ class Reader():
             DF["train_weight"] = DF["event_weight"].abs() * self.config["class_weight"].get(sample_info["target_name"], 1.0 )
         else :
             print "NOT using class weights!"
-            DF["train_weight"] = DF["event_weight"].abs
+            DF["train_weight"] = DF["event_weight"].abs()
 
         DF.replace(-999.,-10, inplace = True)
 
@@ -304,10 +316,10 @@ class Reader():
         else:
             return entry
 
-    def _assertMeasurement(self, entry):
+    def _assertMeasurementAndTrainOn(self, entry):
 
         if type( entry ) is dict:
-            return entry[ self.measurement ]
+            return entry[self.train_on][ self.measurement ]
         else:
             return entry
 
