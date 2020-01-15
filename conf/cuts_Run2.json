@@ -162,5 +162,11 @@
 		"et":"",
 		"tt":"",
 		"em":"(htxs_stage1p1cat == 206 ) "
+	},
+	"-MCWEIGHT-":{
+		"mt":"",
+		"et":"",
+		"tt":"",
+		"em":"(mcweight<1)"
 	}
 }
