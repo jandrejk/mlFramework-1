@@ -169,8 +169,7 @@ class KerasObject():
                     for era in eras
                     ])
                 w_collect = np.concatenate([
-                    w_val[testIndexDict[era][class_]] * (len(x_val) / np.sum(w_val[testIndexDict[era][class_]]))
-                    for class_ in self.classes
+                    w_val[testIndexDict[era][label]] * (len(x_val) / np.sum(w_val[testIndexDict[era][label]])) for label in self.classes
                     for era in eras
                     ])
                 return x_collect, y_collect, w_collect
