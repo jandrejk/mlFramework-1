@@ -53,18 +53,18 @@
         "ggh_2J":  {"mt":0, "et":0, "tt":0, "em":5062.1 },
         "ggh_1J_PTH120to200": {"mt":0, "et":0, "tt":0, "em":16532.6 }
     },
-   "target_values":{
-     "mc" : {
-       "inclusive"   : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "signal": 5},
-       "stage0"      : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh": 6, "qqh": 7 },
-       "stage1p2"    : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh_PTHGT200" : 8, "ggh_0J" : 9, "ggh_1J_PTH0to120" : 10, "ggh_1J_PTH120to200" : 11, "ggh_2J" : 12, "vbftopo_lowmjj" : 13, "vbftopo_highmjj" : 14, "qqh_2J" : 15, "qqh_PTHGT200" : 16}
-     },
-     "data" : {
-       "inclusive"   : { "genuinetau": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "signal": 5},
-       "stage0"      : { "genuinetau": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh": 6, "qqh": 7 },
-       "stage1p2"    : { "genuinetau": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh_PTHGT200" : 8, "ggh_0J" : 9, "ggh_1J_PTH0to120" : 10, "ggh_1J_PTH120to200" : 11, "ggh_2J" : 12, "vbftopo_lowmjj" : 13, "vbftopo_highmjj" : 14, "qqh_2J" : 15, "qqh_PTHGT200" : 16}
-     }
-  },
+    "target_values":{
+      "mc" : {
+        "inclusive"   : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "signal": 5},
+        "stage0"      : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh": 5, "qqh": 6 },
+        "stage1p2"    : { "ztt": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh_PTHGT200" : 5, "ggh_0J" : 6, "ggh_1J_PTH0to120" : 7, "ggh_1J_PTH120to200" : 8, "ggh_2J" : 9, "vbftopo_lowmjj" : 10, "vbftopo_highmjj" : 11, "qqh_2J" : 12, "qqh_PTHGT200" : 13}
+      },
+      "data" : {
+        "inclusive"   : { "genuinetau": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "signal": 5},
+        "stage0"      : { "genuinetau": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh": 5, "qqh": 6 },
+        "stage1p2"    : { "genuinetau": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh_PTHGT200" : 5, "ggh_0J" : 6, "ggh_1J_PTH0to120" : 7, "ggh_1J_PTH120to200" : 8, "ggh_2J" : 9, "vbftopo_lowmjj" : 10, "vbftopo_highmjj" : 11, "qqh_2J" : 12, "qqh_PTHGT200" : 13}
+      }
+    },
     "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweight*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight*", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*","weight_ggh_NNLOPS*"],
     "shape_from_file":[],
     "shape_from_tree":["_unclMet", "_escale", "_ereso", "_jecUncEta0To5", "_jecUncEta0To3", "_jecUncEta3To5", "_jecUncRelativeBal", "_recoilscale", "_recoilreso", "_jecUncRelativeSampleYear", "_jecUncEC2","_jecUncFlavorQCD", "_jecUncAbsoluteYear", "_jecUncHFYear" , "_jecUncEC2Year", "_jecUncBBEC1Year"],
