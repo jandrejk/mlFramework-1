@@ -1,5 +1,5 @@
  {
-    "path": "/nfs/dust/cms/user/mameyer/SM_HiggsTauTau/HTauTau_emu/Inputs/NTuples_testRun2/",
+    "path": "/nfs/dust/cms/user/mameyer/SM_HiggsTauTau/HTauTau_emu/Inputs/NTuples_Run2/",
     "outpath": ".",
     "variables":{
         "em": [
