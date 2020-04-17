@@ -16,12 +16,11 @@
           "m_vis",
           "ME_q2v1",
           "ME_q2v2",
-          "eta_1",
           "mTdileptonMET",
           "era2016"
          ]
     },
-    "shifted_variables": ["met","metphi","mTtot","mTdileptonMET","pt_tt","pt_ttjj","pzetamiss","dzeta","mt_1","mt_2","mtmax","dphi_emet","dphi_mumet","pzetavis","m_vis","pt_vis","pt_1","pt_2","jpt_1","jpt_2","mjj","dijetphi","dijetpt","m_sv","mTemu","njets","dr_tt","pt_sv","mt_sv","jdeta","jeta_1","jeta_2","iso_2"],
+    "shifted_variables": ["ME_q2v1","ME_q2v2","met","metphi","mTtot","mTdileptonMET","pt_tt","pt_ttjj","pzetamiss","dzeta","mt_1","mt_2","mtmax","dphi_emet","dphi_mumet","pzetavis","m_vis","pt_vis","pt_1","pt_2","jpt_1","jpt_2","mjj","dijetphi","dijetpt","m_sv","mTemu","njets","dr_tt","pt_sv","mt_sv","jdeta","jeta_1","jeta_2","iso_2"],
     "addvar": [
         "*"
     ],
@@ -67,7 +66,7 @@
      },
     "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweightRun2*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight*", "weight_ggh_NNLOPS*", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*", "weight_ggh_NNLOPS*"],
     "shape_from_file":[],
-    "shape_from_tree":["_unclMet", "_escale", "_ereso", "_jecUncEta0To5", "_jecUncEta0To3", "_jecUncEta3To5", "_jecUncRelativeBal", "_recoilscale", "_recoilreso", "_jecUncRelativeSampleYear", "_jecUncEC2","_jecUncFlavorQCD", "_jecUncAbsoluteYear", "_jecUncHFYear" , "_jecUncEC2Year", "_jecUncBBEC1Year"],
+    "shape_from_tree":["_unclMet", "_escale", "_ereso", "_embescale","_jecUncEta0To5", "_jecUncEta0To3", "_jecUncEta3To5", "_jecUncRelativeBal", "_recoilscale", "_recoilreso", "_jecUncRelativeSampleYear", "_jecUncEC2","_jecUncFlavorQCD", "_jecUncAbsoluteYear", "_jecUncHFYear" , "_jecUncEC2Year", "_jecUncBBEC1Year", "_jer"],
 
     "samples":{
         "ggH125_inclusive": {
