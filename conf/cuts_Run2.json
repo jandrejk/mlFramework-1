@@ -47,7 +47,7 @@
 		"mt":"( ( (trg_crossmuon_mu20tau27 & abs(eta_1) < 2.1 & pt_1 < 25) | trg_singlemuon_24 | trg_singlemuon_27  ) & pt_2 > 30 )",
 		"et":"( ( (trg_crossele_ele24tau30 && pt_1 < 28) | trg_singleelectron_27 | trg_singleelectron_32 | trg_singleelectron_35 ) & pt_2 > 30 )",
 		"tt":"( trg_doubletau_40_tightiso | trg_doubletau_40_mediso_tightid | trg_doubletau_35_tightiso_tightid )",
-		"em":"(trg_muonelectron & pt_1 > 13 & pt_2 > 10 & TMath::Max(pt_1,pt_2)>24)"
+		"em":"(trg_muonelectron & pt_1 > 15 & pt_2 > 15 & TMath::Max(pt_1,pt_2)>24)"
 	},
 	"-GENLEP-":{
 		"mt":"(gen_match_2 < 5)",
