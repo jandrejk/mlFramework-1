@@ -1,4 +1,4 @@
- {
+{
     "path": "/nfs/dust/cms/user/mameyer/SM_HiggsTauTau/HTauTau_emu/Inputs/NTuples_2016/",
     "outpath": ".",
     "variables":{
@@ -64,7 +64,7 @@
          "stage1p2"    : { "genuinetau": 0, "ss": 1, "diboson": 2, "tt": 3, "misc": 4, "ggh_PTHGT200" : 5, "ggh_0J" : 6, "ggh_1J_PTH0to120" : 7, "ggh_1J_PTH120to200" : 8, "ggh_2J" : 9, "vbftopo_lowmjj" : 10, "vbftopo_highmjj" : 11, "qqh_2J" : 12, "qqh_PTHGT200" : 13}
        }
      },
-    "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweightRun2*", "trigger_filter_weight*", "qcdweightml*" , "prefiringweight*", "weight_ggh_NNLOPS*", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*", "weight_ggh_NNLOPS*"],
+    "weights":["puweight*","xsec_lumi_weight*","effweight*","mcweight*","zptmassweight*","topptweightRun2ttH*", "trigger_filter_weight*", "qcdweight*" , "prefiringweight*", "weight_ggh_NNLOPS*", "embeddedWeight*", "embedded_stitching_weight*", "embedded_rate_weight*", "weight_ggh_NNLOPS*"],
     "shape_from_file":[],
     "shape_from_tree":["_unclMet", "_escale", "_ereso", "_embescale","_jecUncEta0To5", "_jecUncEta0To3", "_jecUncEta3To5", "_jecUncRelativeBal", "_recoilscale", "_recoilreso", "_jecUncRelativeSampleYear", "_jecUncEC2","_jecUncFlavorQCD", "_jecUncAbsoluteYear", "_jecUncHFYear" , "_jecUncEC2Year", "_jecUncBBEC1Year", "_jer"],
 
@@ -219,7 +219,7 @@
             "use_to_train_on_data" : "no",
             "select":       "-OS- && -ISO- && -VETO- && -TRIG-&& -MT- && -NBTAG-",
             "name":         "NOMINAL_ntuple_TTbar",
-            "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight","topptweightRun2","trigger_filter_weight","prefiringweight"]
+            "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight","topptweightRun2ttH","trigger_filter_weight","prefiringweight"]
         },
         "TTL": {
             "target":       {"em":"tt" },
@@ -227,7 +227,7 @@
             "use_to_train_on_data":"yes",
             "select":       "-OS- && -ISO- && -VETO- && -TRIG- &&  -MT- && -NBTAG- && -ZLL-",
             "name":         "NOMINAL_ntuple_TTbar",
-            "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight","topptweightRun2","trigger_filter_weight","prefiringweight"]
+            "event_weight": ["puweight", "xsec_lumi_weight", "effweight", "mcweight","topptweightRun2ttH","trigger_filter_weight","prefiringweight"]
         },
         "Diboson": {
             "target":       {"em":"diboson" },
@@ -267,7 +267,7 @@
             "use_to_train_on_data" : "",
             "select":        "-SS- && -ISO- && -VETO- && -TRIG- && -MT- && -NBTAG-",
             "name":          "NOMINAL_ntuple_MuonEG",
-            "event_weight" : "qcdweightml"
+            "event_weight" : "qcdweight"
         },
         "ZTT_full": {
             "target":        "none",
