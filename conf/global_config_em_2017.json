@@ -364,6 +364,22 @@
             "name":         "NOMINAL_ntuple_VBFHWW",
             "event_weight": 1.0
 	      },
+        "zHWW_full": {
+            "target":       "none",
+            "measurement":  "",
+            "use_to_train_on_data" : "",
+            "select":       "",
+            "name":         "NOMINAL_ntuple_ZHWW",
+            "event_weight": 1.0
+        },
+        "wHWW_full": {
+            "target":       "none",
+            "measurement":  "",
+            "use_to_train_on_data" : "",
+            "select":       "",
+            "name":         "NOMINAL_ntuple_WHWW",
+            "event_weight": 1.0
+        },
         "ttH_full": {
             "target":       "none",
             "measurement":  "",
